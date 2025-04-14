@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/email_address"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="100dp"
+        tools:layout_editor_absoluteX="38dp"
+        />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="100dp"
+        tools:layout_editor_absoluteX="16dp"
+        />
+
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:onClick="login"
+        android:text="@string/login"
+        android:backgroundTint="@color/black"
+        android:layout_marginHorizontal="200dp" />
+
+    <Button
+        android:id="@+id/loginGoogleButton"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:onClick="loginWithGoogle"
+        android:text="@string/loginGoogle"
+        android:backgroundTint="@color/black"
+        android:layout_marginHorizontal="200dp" />
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/black"
+        android:onClick="register"
+        android:text="@string/registration"
+        android:layout_marginHorizontal="200dp" />
+
+    <Button
+        android:id="@+id/loginGuestButton"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:onClick="loginAsGuest"
+        android:text="@string/loginGuest"
+        android:backgroundTint="@color/black"
+        android:layout_marginHorizontal="200dp" />
+
+
+</LinearLayout>
+</ScrollView>

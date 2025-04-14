@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "103498484882",
+    "project_id": "fishingshop-ed999",
+    "storage_bucket": "fishingshop-ed999.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:103498484882:android:caef3878a0a0239f0c6a4b",
+        "android_client_info": {
+          "package_name": "com.example.shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "103498484882-1p5167c6uvhsat00njob36h7qlucgfm7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shop",
+            "certificate_hash": "d6cd0e17c151f29d0596602cf839060ef56d066e"
+          }
+        },
+        {
+          "client_id": "103498484882-tpkijbdpje05ak86up7d6hm3ra3gljs2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxy9e_S6fCDOndUaMkKrNeJdN2CAjdKuk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "103498484882-tpkijbdpje05ak86up7d6hm3ra3gljs2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

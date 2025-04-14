@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Shop</string>
+    <string name="name">Név</string>
+    <string name="password">Jelszó</string>
+    <string name="login">Bejelentkezés</string>
+    <string name="registration">Regisztráció</string>
+    <string name="user_name">Felhasználónév</string>
+    <string name="email_address">E-mail cím</string>
+    <string name="password_again">Jelszó megerősítése</string>
+    <string name="cancel">Mégsem</string>
+    <string name="phoneNumber">Telefonszám</string>
+    <string name="address">Szállítási cím</string>
+    <string name="seller">Eladó</string>
+    <string name="buyer">Vásárló</string>
+    <string name="product_description">Termék leírás</string>
+    <string name="loginGuest">Látogató</string>
+    <string name="loginGoogle">Google fiók használata</string>
+</resources>
