@@ -24,6 +24,7 @@
     <string name="view">Nézet</string>
     <string name="settings">Beállítások</string>
     <string name="logout">Kijelentkezés</string>
+    <string name="add_cart">Kosárba helyez</string>
 
     <string-array name="shopping_item_names">
         <item>SERIE WALTER HYPERNOVA</item>

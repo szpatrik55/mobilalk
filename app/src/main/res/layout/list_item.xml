@@ -61,7 +61,7 @@
             android:layout_below="@id/price"
             android:textColor="@color/white"
             android:backgroundTint="@color/black"
-            android:text="Kosárba"
+            android:text="@string/add_cart"
             android:layout_centerHorizontal="true"/>
 
     </RelativeLayout>
