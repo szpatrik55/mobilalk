@@ -26,7 +26,7 @@ public class NotificationHandler {
         NotificationChannel channel = new NotificationChannel(
                 CHANNEL_ID,
                 "Shop Notification",
-                NotificationManager.IMPORTANCE_DEFAULT
+                NotificationManager.IMPORTANCE_HIGH
         );
         channel.enableLights(true);
         channel.enableVibration(true);
@@ -37,15 +37,25 @@ public class NotificationHandler {
 
     public void send(String message){
         Intent intent = new Intent(mContext, ShopListActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-
+        PendingIntent pendingIntent = PendingIntent.getActivity(
+                mContext,
+                0,
+                intent,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE
+        );
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext, CHANNEL_ID)
                 .setContentTitle("PecaPont értesítést küldött!")
                 .setContentText(message)
                 .setSmallIcon(R.drawable.shopping_cart)
-                .setContentIntent(pendingIntent);
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
+                .setPriority(NotificationCompat.PRIORITY_HIGH);
 
         this.mManager.notify(NOTIFICATION_ID, builder.build());
+    }
+
+    public void cancel(){
+        this.mManager.cancel(NOTIFICATION_ID);
     }
 }

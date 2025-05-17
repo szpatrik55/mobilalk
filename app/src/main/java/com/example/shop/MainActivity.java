@@ -3,6 +3,8 @@ package com.example.shop;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -73,6 +75,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         mGoogleSingInClient = GoogleSignIn.getClient(this, gso);
 
         getSupportLoaderManager().restartLoader(0, null, this);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (checkSelfPermission("android.permission.POST_NOTIFICATIONS") != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[]{"android.permission.POST_NOTIFICATIONS"}, 1001);
+            }
+        }
 
         Log.i(LOG_TAG, "onCreate");
     }

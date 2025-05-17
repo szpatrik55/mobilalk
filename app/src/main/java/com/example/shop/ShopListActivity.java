@@ -5,7 +5,12 @@ import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -14,6 +19,7 @@ import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -70,6 +76,8 @@ public class ShopListActivity extends AppCompatActivity {
     private CollectionReference mItems;
     private SharedPreferences preferences;
     private NotificationHandler mNotificationHandler;
+    private AlarmManager mAlarmManager;
+    private JobScheduler mJobScheduler;
 
 
     @Override
@@ -117,6 +125,11 @@ public class ShopListActivity extends AppCompatActivity {
         this.registerReceiver(powerReceiver, filter);
 
         mNotificationHandler = new NotificationHandler(this);
+        mAlarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        mJobScheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+
+        setAlarmManager();
+        setJobScheduler();
     }
 
     BroadcastReceiver powerReceiver = new BroadcastReceiver() {
@@ -186,6 +199,7 @@ public class ShopListActivity extends AppCompatActivity {
                     Toast.makeText(this, "Termék " + item._getId() + " nem került törlésre.", Toast.LENGTH_LONG).show();
                 });
 
+        mNotificationHandler.cancel();
         queryData();
     }
 
@@ -200,8 +214,6 @@ public class ShopListActivity extends AppCompatActivity {
         }
 
         mRecycleView.setLayoutManager(new GridLayoutManager(this, gridNumber));
-
-        // Újratöltjük a menüt, hogy az ikon is frissüljön
         invalidateOptionsMenu();
     }
 
@@ -298,6 +310,7 @@ public class ShopListActivity extends AppCompatActivity {
                     Toast.makeText(this, "Termék " + item._getId() + " nem került változtatásra.", Toast.LENGTH_LONG).show();
                 });
 
+        mNotificationHandler.send(item.getName());
         queryData();
     }
 
@@ -306,4 +319,38 @@ public class ShopListActivity extends AppCompatActivity {
         super.onDestroy();
         unregisterReceiver(powerReceiver);
     }
+
+    private void setAlarmManager(){
+        long reapeatInterval = AlarmManager.INTERVAL_FIFTEEN_MINUTES * 96; //24 óránként
+        long triggerTime = SystemClock.elapsedRealtime() + reapeatInterval;
+
+        Intent intent = new Intent(this, AlarmReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+        mAlarmManager.setInexactRepeating(
+                AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                triggerTime,
+                reapeatInterval,
+                pendingIntent
+        );
+
+    }
+
+    public void setJobScheduler(){
+        if (mJobScheduler == null) {
+            Log.e(LOG_TAG, "JobScheduler is null!");
+            return;
+        }
+
+        int networkType = JobInfo.NETWORK_TYPE_UNMETERED;
+        int hardDeadline = 80000;
+
+        ComponentName name = new ComponentName(getPackageName(), NotificationJobService.class.getName());
+        JobInfo.Builder builder = new JobInfo.Builder(0, name)
+                .setRequiredNetworkType(networkType)
+                .setRequiresCharging(true)
+                .setOverrideDeadline(hardDeadline);
+
+        mJobScheduler.schedule(builder.build());
+    }
+
 }
