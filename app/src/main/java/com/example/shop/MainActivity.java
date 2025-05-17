@@ -6,15 +6,19 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.Loader;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -30,7 +34,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
 
     EditText userNameET;
     EditText passwordET;
@@ -67,6 +71,8 @@ public class MainActivity extends AppCompatActivity {
                         .requestEmail()
                         .build();
         mGoogleSingInClient = GoogleSignIn.getClient(this, gso);
+
+        getSupportLoaderManager().restartLoader(0, null, this);
 
         Log.i(LOG_TAG, "onCreate");
     }
@@ -198,4 +204,16 @@ public class MainActivity extends AppCompatActivity {
         Log.i(LOG_TAG, "onRestart");
 
     }
+    @NonNull
+    @Override
+    public Loader<String> onCreateLoader(int id, @Nullable Bundle args) {
+        return new AsyncLoader(this);
+    }
+    @Override
+    public void onLoadFinished(@NonNull Loader<String> loader, String data) {
+        Button anonym = findViewById(R.id.loginGuestButton);
+        anonym.setText(data);
+    }
+    @Override
+    public void onLoaderReset(@NonNull Loader<String> loader) {}
 }

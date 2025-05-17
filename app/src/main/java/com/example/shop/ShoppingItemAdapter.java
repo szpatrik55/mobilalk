@@ -107,13 +107,6 @@ public class ShoppingItemAdapter extends RecyclerView.Adapter<ShoppingItemAdapte
             mItemImage = itemView.findViewById(R.id.itemImage);
             mRatingBar = itemView.findViewById(R.id.ratingBar);
 
-            itemView.findViewById(R.id.add_to_cart).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.d("Activity", "Kosárba helyez gomb megnyomva!");
-                    ((ShopListActivity)mContext).updateAlertIcon();
-                }
-            });
         }
 
         public void bindTo(ShoppingItem currentItem) {
@@ -122,6 +115,16 @@ public class ShoppingItemAdapter extends RecyclerView.Adapter<ShoppingItemAdapte
             mPriceText.setText(currentItem.getPrice());
             mRatingBar.setRating(currentItem.getRatedInfo());
             Glide.with(mContext).load(currentItem.getImageResource()).into(mItemImage);
+
+            itemView.findViewById(R.id.add_to_cart).setOnClickListener(v -> {
+                Log.d("Activity", "Kosárba helyez gomb megnyomva!");
+                ((ShopListActivity)mContext).updateAlertIcon(currentItem);
+            });
+
+            itemView.findViewById(R.id.delete).setOnClickListener(v -> {
+                Log.d("Activity", "Törlés gomb megnyomva!");
+                ((ShopListActivity)mContext).deleteItem(currentItem);
+            });
         }
     }
 }

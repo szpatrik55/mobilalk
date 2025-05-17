@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Shop</string>
+    <string name="app_name">PecaPont</string>
     <string name="name">Név</string>
     <string name="password">Jelszó</string>
     <string name="login">Bejelentkezés</string>
@@ -25,31 +25,32 @@
     <string name="settings">Beállítások</string>
     <string name="logout">Kijelentkezés</string>
     <string name="add_cart">Kosárba helyez</string>
+    <string name="delete">Törlés</string>
 
     <string-array name="shopping_item_names">
-        <item>SERIE WALTER HYPERNOVA</item>
-        <item>DAIWA REGAL W</item>
-        <item>TUBERTINI GORILLA SINKING</item>
-        <item>PRESTON ELASTICATED FLAT METHOD</item>
-        <item>GURU SPEED BEAD</item>
-        <item>PRESTON REFLO</item>
-        <item>GAMAKATSU LS-2260 NSB A1-HARD</item>
+        <item>SERIE WALTER HYPERNOVA Horgászbot</item>
+        <item>DAIWA REGAL W Orsó</item>
+        <item>TUBERTINI GORILLA SINKING Zsinór</item>
+        <item>PRESTON ELASTICATED FLAT METHOD Etetőkosár</item>
+        <item>GURU SPEED BEAD Kapocs</item>
+        <item>PRESTON REFLO Előke</item>
+        <item>GAMAKATSU LS-2260 NSB A1-HARD Horog</item>
         <item>GURU BAIT BAYONETS csalitüske</item>
-        <item>PROMIX COMPETITION WAFTER</item>
-        <item>SERIE WALTER MEREV BOTZSÁK</item>
+        <item>PROMIX COMPETITION WAFTER Csali</item>
+        <item>SERIE WALTER Merev Botzsák</item>
     </string-array>
 
     <string-array name="shopping_item_desc">
-        <item>SERIE WALTER HYPERNOVA horgászbot. Elérhető 330/360/390-es méretben</item>
-        <item>DAIWA REGAL W orsó. Elérhető 3000 és 4000 méretben</item>
-        <item>TUBERTINI GORILLA SINKING. Elérhető méretek: 0.18, 0.20, 0.22, 0.24, 0.26</item>
-        <item>PRESTON ELASTICATED FLAT METHOD etetőkosár. S, L, XL méretekben. 20/30/40/50 grammos kivitelben.</item>
-        <item>GURU SPEED BEAD 5db/csomag</item>
-        <item>PRESTON REFLO FLUOROCARBON előke. Elérhető méretek: 0.08, 0.10, 0.12, 0.14, 0.16, 0.18</item>
-        <item>GAMAKATSU LS-2260 NSB A1-HARD horog. Elérhető méretek: #12, #10, #8</item>
-        <item>GURU BAIT BAYONETS csalitüske. 6/8/10 mm-es méretben.</item>
-        <item>PROMIX COMPETITION WAFTER mangó izesítéssel</item>
-        <item>SERIE WALTER MEREV BOTZSÁK. 140cm/160cm/180cm.</item>
+        <item>SERIE WALTER HYPERNOVA horgászbot. Elérhető 330/360/390-es méretben.</item>
+        <item>DAIWA REGAL W Orsó. Elérhető 3000 és 4000 méretben.</item>
+        <item>TUBERTINI GORILLA SINKING. Elérhető méretek: 0.18, 0.20, 0.22, 0.24, 0.26.</item>
+        <item>PRESTON ELASTICATED FLAT METHOD etetőkosár. Elérhető: S, L, XL méretekben és 20g, 30g, 40g, 50g kivitelben.</item>
+        <item>GURU SPEED BEAD. 5db/csomag.</item>
+        <item>PRESTON REFLO FLUOROCARBON előke. Elérhető méretek: 0.08, 0.10, 0.12, 0.14, 0.16, 0.18.</item>
+        <item>GAMAKATSU LS-2260 NSB A1-HARD horog. Elérhető méretek: #12, #10, #8.</item>
+        <item>GURU BAIT BAYONETS csalitüske. Elérhető méretek: 6mm, 8mm, 10mm.</item>
+        <item>PROMIX COMPETITION WAFTER. Mangó izesítéssel.</item>
+        <item>SERIE WALTER Merev Botzsák. Elérhető méretek: 140cm, 160cm, 180cm.</item>
     </string-array>
 
     <array name="shopping_item_rates">
