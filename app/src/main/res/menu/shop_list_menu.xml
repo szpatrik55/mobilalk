@@ -34,4 +34,11 @@
         app:showAsAction="never"
         app:actionViewClass="android.widget.SearchView"
         />
+
+    <item
+        android:id="@+id/add_item"
+        android:title="Hozzáadás"
+        android:icon="@drawable/add"
+        app:showAsAction="always" />
+
 </menu>

@@ -266,7 +266,13 @@ public class ShopListActivity extends AppCompatActivity {
             }
             return true;
 
-        } else {
+        }else if (id == R.id.add_item) {
+            Log.d(LOG_TAG, "Hozzáadás gomb megnyomva!");
+            Intent intent = new Intent(this, AddItemActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        else {
             return super.onOptionsItemSelected(item);
         }
     }
@@ -318,6 +324,12 @@ public class ShopListActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(powerReceiver);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        queryData();
     }
 
     private void setAlarmManager(){

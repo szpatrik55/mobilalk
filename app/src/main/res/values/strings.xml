@@ -26,6 +26,12 @@
     <string name="logout">Kijelentkezés</string>
     <string name="add_cart">Kosárba</string>
     <string name="delete">Töröl</string>
+    <string name="update">Módosít</string>
+    <string name="add">hozzáadás</string>
+    <string name="add_item">Termék hozzáadása</string>
+    <string name="item_price">Termék ára</string>
+    <string name="item_desc">Termék leírása</string>
+    <string name="item_name">Termék neve</string>
 
     <string-array name="shopping_item_names">
         <item>SERIE WALTER HYPERNOVA Horgászbot</item>
